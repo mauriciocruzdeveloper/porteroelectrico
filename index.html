@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> EDIFICIO PUERTO NORTE</title>
+		<meta lang="es">
+		<link rel="stylesheet" href="css/estilo.css" type="text/css" media="screen"/>
+	</head>
+<body>
+<h1> PORTERO ELECTRICO</h1>
+	<script>
+	
+	function ingresarNum (nro)
+	{
+		if (document.getElementById("visorDpto").value.length == 0) 
+		{
+			switch (document.getElementById("visorPiso").value.length){
+				case 0: document.getElementById("visorPiso").value += nro; break;
+				case 1: document.getElementById("visorPiso").value += nro; break;
+				case 2: document.getElementById("visorDpto").value += nro; break;
+			};
+		};
+	};
+	
+	function llamar () { 
+		var visor="";
+		var piso= document.getElementById("visorPiso").value;
+		var dpto= document.getElementById("visorDpto").value;
+
+		if (piso < 43) {
+			if (dpto > 0 && dpto < 9) {
+				visor="Llamando al Piso " +  piso + " Dpto " + dpto;
+			} else {
+				visor="Piso valido " + piso + " Dpto invalido  " + dpto;
+
+			};
+	 
+		} else {
+			if (dpto > 0 && dpto < 9) {
+				visor="Piso invalido " +  piso + " Dpto valido " + dpto;
+			} else {
+				visor="Piso invalido " + piso + " Dpto invalido " + dpto;
+
+			};
+
+		};
+		document.getElementById("visorGral").value=visor;
+
+	};
+	function borrar () {
+		document.getElementById("visorPiso").value ="";
+		document.getElementById("visorDpto").value ="";
+		document.getElementById("visorGral").value ="";
+	};
+
+
+	</script>
+
+<section>
+	<article>
+		<input type="text" class="visores" id="visorPiso" placeholder="Piso">
+		<input type="text" class="visores" id="visorDpto"placeholder="Depto"><br/>
+	</article>
+
+	<article>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(1)" />1</button>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(2)" />2</button>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(3)" />3</button>
+	</article>
+
+	<article>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(4)" />4</button>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(5)" />5</button>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(6)" />6</button>
+		
+	</article>
+
+	<article>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(7)" />7</button>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(8)" />8</button>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(9)" />9</button>
+	</article>
+			
+	<article>
+		<button type="button" class="botones" id="uno" onclick="ingresarNum(0)" />0</button>
+		<button type="button" class="botones" id="llamar" onclick="borrar()"/>borrar</button>
+		<button type="button" class="botones" id="borrar" onclick="llamar()"/>llamar</button>
+	</article>		
+			
+			
+	<article>
+		<input type="text" class="visorgrande" id="visorGral" placeholder="Visor Gral">	
+	</article>
+			
+	
+	
+</section>
+
+</body>
+</html> 
